@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: cdc-server
+  redis:
+    #    host: 192.168.31.15
+    host: 192.168.23.227
+    database: 11
+  kafka:
+    bootstrap-servers: 192.168.23.227:9092
+    consumer:
+      group-id: group-${spring.application.name}
+      auto-offset-reset: earliest
+logging:
+  level:
+    root: info

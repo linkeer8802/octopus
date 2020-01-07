@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>octopus</artifactId>
+        <groupId>com.github.linkeer8802</groupId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>octopus-customer-orders-examples</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>customer-service-model</module>
+        <module>customer-service-impl</module>
+        <module>order-service-model</module>
+        <module>order-service-impl</module>
+    </modules>
+
+    <properties>
+        <springboot.version>2.2.1.RELEASE</springboot.version>
+        <moneta.version>1.3</moneta.version>
+        <jackson-datatype-money.version>1.1.1</jackson-datatype-money.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- start money support -->
+            <dependency>
+                <groupId>org.javamoney</groupId>
+                <artifactId>moneta</artifactId>
+                <type>pom</type>
+                <version>${moneta.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.zalando</groupId>
+                <artifactId>jackson-datatype-money</artifactId>
+                <version>${jackson-datatype-money.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>apiguardian-api</artifactId>
+                        <groupId>org.apiguardian</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- end money support -->
+        </dependencies>
+    </dependencyManagement>
+</project>

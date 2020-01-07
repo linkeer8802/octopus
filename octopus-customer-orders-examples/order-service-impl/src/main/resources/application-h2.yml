@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./db_orders
+    password:
+    username: sa
+    schema:
+      - classpath:/schema.sql
+      - classpath:/global_events.sql
+    initializationMode: never
+  h2:
+    console:
+      enabled: true

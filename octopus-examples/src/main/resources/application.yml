@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:dbtest
+    password:
+    username: sa
+    schema:
+      - classpath:/schema.sql
+  h2:
+    console:
+      enabled: true
+  redis:
+#    host: 192.168.31.15
+    host: 192.168.23.227
+    database: 11
+logging:
+  level:
+    root: info
+    org.jooq.tools: debug
+    org.springframework.jdbc: debug
+    com.github.linkeer8802.octopus: debug
+
+octopus:
+  aggregateroot:
+    cache:
+      enabled: true
+      expire: 1800

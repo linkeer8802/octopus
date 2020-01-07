@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: mysql
+  application:
+    name: orders-service
+  redis:
+#    host: 192.168.31.15
+    host: 192.168.23.227
+    database: 11
+  kafka:
+    bootstrap-servers: 192.168.23.227:9092
+    consumer:
+      group-id: group-${spring.application.name}
+      auto-offset-reset: earliest
+      properties:
+        "session.timeout.ms": 60000
+logging:
+  level:
+    root: info
+    org.jooq.tools: debug
+    org.springframework.jdbc: debug
+    com.github.linkeer8802.octopus: debug
+
+octopus:
+  aggregateroot:
+    cache:
+      enabled: true
+      expire: 1800
+  event:
+    persistent:
+      enabled: true
+  message:
+    kafka:
+      concurrency: 1
+      partitions: 3
+      topicreplicas: 1
+
+server:
+  port: 8082

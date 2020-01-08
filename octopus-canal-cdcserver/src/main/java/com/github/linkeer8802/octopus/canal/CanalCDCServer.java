@@ -32,7 +32,7 @@ public class CanalCDCServer implements CDCServer {
 
     @Value("${octopus.cdc.canal.connector.host:localhost}")
     private String canalConnectorHost;
-    @Value("${octopus.cdc.canal.connector.port:1111}")
+    @Value("${octopus.cdc.canal.connector.port:11111}")
     private int canalConnectorPort;
     @Value("${octopus.cdc.canal.connector.destination:}")
     private String canalConnectorDestination;

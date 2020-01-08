@@ -13,3 +13,11 @@ spring:
 logging:
   level:
     root: info
+
+octopus:
+  cdc:
+    canal:
+      connector:
+        host: 192.168.23.227
+        port: 11111
+        destination: test

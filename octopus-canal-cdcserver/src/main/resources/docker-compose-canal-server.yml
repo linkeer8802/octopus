@@ -8,7 +8,7 @@ services:
       - MYSQL_ROOT_PASSWORD=123456
       - MYSQL_USER=canal
       - MYSQL_PASSWORD=canal
-    command: --default-time_zone = '+8:00' --log-bin=mysql-bin --binlog-format=ROW --server_id=1
+    command: --default-time_zone=+8:00 --log-bin=mysql-bin --binlog-format=ROW --server_id=1
   canal-server:
     image: canal/canal-server:v1.1.4
     hostname: ${DOCKER_HOST_IP}
@@ -26,3 +26,5 @@ services:
       - canal.instance.tsdb.enable=true
       - canal.instance.gtidon=false
       - canal.instance.filter.regex=${CANAL_FILTER_REGEX}
+    depends_on:
+      - mysql
